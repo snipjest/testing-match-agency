@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+// Миксин расчета среднего значения между min и max при изменении ширины экрана
+@function val($min, $max) {
+  // min/max ширина .container
+  $minViewportWidth: 360;
+  $maxViewportWidth: 1440;
+
+  $slope: math.div(($max - $min), ($maxViewportWidth - $minViewportWidth));
+  $yAxisIntersection: -$minViewportWidth * $slope + $min;
+
+  @return clamp(
+    #{$min}px,
+    #{$yAxisIntersection}px + #{$slope * 100vw},
+    #{$max}px
+  );
+}
+
+// Миксин преобразования px в rem
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.';
+  }
+}

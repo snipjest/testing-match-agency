@@ -1,0 +1,19 @@
+a.link {
+  color: var(--color-black);
+  text-decoration: underline;
+  transition: all 0.3s ease 0s;
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-green-success);
+    }
+  }
+  &:active {
+    color: #76cd54;
+  }
+  &:not([href]),
+  &.disabled {
+    color: var(--color-medium-gray);
+    pointer-events: none;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,16 @@
+.label-product {
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 100%;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--color-white);
+  &--red {
+    background-color: var(--color-error);
+  }
+  &--yellow {
+    background-color: var(--color-yellow);
+  }
+}

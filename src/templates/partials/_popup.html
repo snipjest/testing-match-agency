@@ -1,0 +1,92 @@
+<div class="popup popup-form" id="popup-form-book">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close popup-cl">
+				<svg width="32" height="32" viewBox="0 0 32 32">
+					<use xlink:href="#icon-close"></use>
+				</svg>
+			</div>
+			<h3>Забронировать домик</h3>
+			<p class="popup__description p2">Оставьте свои контакты, мы подберем для вас подходящий домик</p>
+			<form class="popup__form form">
+				<div class="popup__form-inputs">
+					<div class="form__input-wrap">
+						<input class="form__input p2" type="text" name="name" placeholder="Ваше имя*" autocomplete="on">
+					</div>
+					<div class="form__input-wrap">
+						<input class="form__input p2" type="tel" name="tel" placeholder="+7 (___) ___-__-__*" autocomplete="off">
+					</div>
+					<textarea class="form__input p2" name="comment" placeholder="Комментарий"></textarea>
+				</div>
+				<label class="popup__form-checkbox checkbox">
+					<input class="checkbox__input" type="checkbox" name="check">
+					<span class="checkbox__custom"></span>
+					<span class="checkbox__text p3">Я соглашаюсь с <a href="#" target="_blank">Политикой Конфиденциальности</a> сайта</span>
+				</label>
+				<button class="popup__btn btn-medium btn--yellow" type="submit" name="submit">Отправить</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="popup popup-form" id="popup-form-price">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close popup-cl">
+				<svg width="32" height="32" viewBox="0 0 32 32">
+					<use xlink:href="#icon-close"></use>
+				</svg>
+			</div>
+			<h3>Узнать стоимость</h3>
+			<p class="popup__description p2">Коттедж Loft House</p>
+			<form class="popup__form form">
+				<div class="popup__form-inputs">
+					<div class="form__input-wrap">
+						<input class="form__input p2" type="text" name="name" placeholder="Ваше имя*" autocomplete="on">
+					</div>
+					<div class="form__input-wrap">
+						<input class="form__input p2" type="tel" name="tel" placeholder="+7 (___) ___-__-__*" autocomplete="off">
+					</div>
+					<textarea class="form__input p2" name="comment" placeholder="Комментарий"></textarea>
+				</div>
+				<label class="popup__form-checkbox checkbox">
+					<input class="checkbox__input" type="checkbox" name="check">
+					<span class="checkbox__custom"></span>
+					<span class="checkbox__text p3">Я соглашаюсь с <a href="#" target="_blank">Политикой Конфиденциальности</a> сайта</span>
+				</label>
+				<button class="popup__btn btn-medium btn--yellow" type="submit" name="submit">Отправить</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="popup popup--msg" id="popup-success">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close popup-cl">
+				<svg width="32" height="32" viewBox="0 0 32 32">
+					<use xlink:href="#icon-close"></use>
+				</svg>
+			</div>
+			<h3>Спасибо за заявку!</h3>
+			<p class="popup__description p2">Мы свяжемся с вами в ближайшее время, чтобы обсудить все детали.</p>
+			<button class="popup__btn popup-cl btn-medium btn--green">Хорошо</button>
+		</div>
+	</div>
+</div>
+
+
+<div class="popup popup--msg" id="popup-error">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close popup-cl">
+				<svg width="32" height="32" viewBox="0 0 32 32">
+					<use xlink:href="#icon-close"></use>
+				</svg>
+			</div>
+			<h3>Что-то пошло не так...</h3>
+			<p class="popup__description p2">Попробуйте заполнить форму еще раз или подождите немного.</p>
+			<button class="popup__btn btn-medium btn--green" id="back-btn">Назад</button>
+		</div>
+	</div>
+</div>

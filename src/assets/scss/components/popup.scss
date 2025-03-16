@@ -1,0 +1,116 @@
+.popup {
+  padding: 16px;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  z-index: 100;
+  transition: visibility 0.2s ease 0s;
+  &::before {
+    content: '';
+    background-color: var(--color-black-overlay);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease 0s;
+  }
+  &.active {
+    overflow: auto;
+    visibility: visible;
+    &::before {
+      opacity: 0.6;
+    }
+    .popup__body {
+      opacity: 1;
+      transition: all 0.2s ease 0s;
+      transform: scale(1);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__body {
+    opacity: 0;
+    background-color: var(--color-white);
+    padding: 32px;
+    width: 100%;
+    max-width: 540px;
+    border-radius: 32px;
+    transform: scale(0.8);
+    transition: all 0.3s ease 0s;
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: var(--color-medium-gray);
+    transition: all 0.4s ease 0s;
+    @media (min-width: 1024px) {
+      top: 16px;
+      right: 16px;
+    }
+  }
+
+  &__description {
+    margin-top: 16px;
+    @media (min-width: 1024px) {
+      margin-top: 24px;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    margin-top: 24px;
+  }
+  &__form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    textarea {
+      height: 90px;
+    }
+  }
+
+  &__form-checkbox {
+    margin-top: 16px;
+    align-items: center;
+    @media (min-width: 1024px) {
+      margin-top: 24px;
+    }
+  }
+
+  &__btn {
+    margin-top: 24px;
+    width: 100%;
+    @media (min-width: 1024px) {
+      margin-top: 32px;
+      width: auto;
+    }
+  }
+  &--msg {
+    .popup__description {
+      margin-top: 24px;
+    }
+  }
+}

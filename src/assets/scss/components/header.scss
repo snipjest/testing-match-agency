@@ -1,0 +1,261 @@
+@use '../mixins' as *;
+
+.header {
+  height: 60px;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-light-gray);
+  @media (min-width: 1280px) {
+    height: 64px;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  &__logo {
+    width: val(110, 143);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__mobile-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    @media (min-width: 1280px) {
+      display: none;
+    }
+  }
+}
+
+@mixin border {
+  @media (max-width: 1279px) {
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+}
+@mixin hover {
+  @media (max-width: 1279px) {
+    &:hover {
+      background-color: var(--color-green-16);
+    }
+  }
+}
+@mixin padding {
+  @media (max-width: 1279px) {
+    padding: 14px 16px;
+  }
+}
+
+@mixin nav-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  text-decoration: none;
+  @include padding;
+  @include border;
+  @include hover;
+  @media (min-width: 1280px) {
+    padding: 11px 12px;
+    line-height: 100%;
+    border-radius: 100px;
+    margin-left: 16px;
+    color: var(--color-white);
+    svg {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 60px;
+  left: -100%;
+  width: 100%;
+  height: calc(100dvh - 60px);
+  background-color: var(--color-white);
+  transition: all 0.3s ease 0s;
+  overflow-y: auto;
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
+  @media (min-width: 1280px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    height: auto;
+    width: auto;
+    display: flex;
+    overflow-y: unset;
+  }
+  &.active {
+    left: 0;
+  }
+  &__btn-green {
+    color: var(--color-green);
+    @include nav-btn;
+    @media (min-width: 1280px) {
+      background-color: var(--color-green);
+      transition: all 0.3s ease 0s;
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--color-green-success);
+        }
+      }
+      &:active:not(:disabled):not(.disabled) {
+        background-color: #76cd54;
+      }
+    }
+  }
+
+  &__btn-yellow {
+    color: var(--color-yellow);
+    @include nav-btn;
+    @media (min-width: 1280px) {
+      background-color: var(--color-yellow);
+      transition: all 0.3s ease 0s;
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--color-yellow-warning);
+        }
+      }
+      &:active:not(:disabled):not(.disabled) {
+        background-color: #ffb545;
+      }
+    }
+  }
+
+  &__list {
+    @media (min-width: 1280px) {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin: 0 74px 0 40px;
+    }
+  }
+
+  &__item {
+    &:not(.nav__submenu) a {
+      @include padding;
+    }
+    a {
+      display: block;
+      @include border;
+    }
+    & > a {
+      @media (min-width: 1280px) {
+        transition: all 0.3s ease 0s;
+        @media (hover: hover) {
+          &:hover {
+            color: var(--color-green);
+          }
+        }
+      }
+      @include hover;
+    }
+  }
+
+  &__submenu {
+    @media (min-width: 1280px) {
+      position: relative;
+      cursor: pointer;
+      &::after {
+        content: '';
+        width: 100%;
+        height: 21px;
+        position: absolute;
+        left: 0;
+        top: 100%;
+      }
+    }
+    &.open {
+      .nav__submenu-btn {
+        color: var(--color-green);
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__submenu-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    @include padding;
+    @include border;
+
+    svg {
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  &__submenu-list {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    @media (min-width: 1280px) {
+      position: absolute;
+      top: calc(100% + 21px);
+      left: 50%;
+      transform: translateX(-50%);
+      max-height: none;
+      min-width: 292px;
+      background-color: var(--color-white);
+      box-shadow: 1px 3px 24px 0px rgba(0, 0, 0, 0.06);
+      border-radius: 0px 0px 16px 16px;
+      transition: all 0.3s ease 0s;
+    }
+  }
+  &__submenu-item {
+    &:not(:last-child) a {
+      @include border;
+    }
+    a {
+      padding: 14px 16px 14px 32px;
+      @media (min-width: 1280px) {
+        padding: 12px 16px;
+        transition: all 0.3s ease 0s;
+      }
+      &:hover {
+        background-color: var(--color-green-16);
+      }
+    }
+  }
+
+  &__phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @include padding;
+    @include border;
+    @include hover;
+    span {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 110%;
+    }
+  }
+  &__phone-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    background-color: var(--color-green);
+  }
+}

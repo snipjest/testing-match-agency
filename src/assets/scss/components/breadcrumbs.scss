@@ -1,0 +1,24 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  row-gap: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  color: var(--color-white);
+  &__item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      &::after {
+        content: '/';
+        text-align: center;
+        width: 14px;
+      }
+    }
+  }
+
+  &__link {
+  }
+}

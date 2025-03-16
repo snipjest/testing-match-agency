@@ -1,0 +1,32 @@
+{
+  "name": "testing-match-agency",
+  "version": "1.0.0",
+  "author": "Katkov Dmitry",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "baguettebox.js": "^1.12.0",
+    "browser-sync": "^3.0.3",
+    "del": "^8.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-include": "^2.4.1",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^5.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imask": "^7.6.1",
+    "panini": "^1.7.2",
+    "sass": "^1.85.1",
+    "swiper": "^11.2.5"
+  }
+}
