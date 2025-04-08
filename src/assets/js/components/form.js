@@ -123,11 +123,11 @@ function hideLoader(form) {
 }
 
 // Функция для отправки данных формы (имитация асинхронного запроса)
-function submitFormData(form) {
+/* function submitFormData(form) {
   return new Promise((resolve, reject) => {
     showLoader(form)
     setTimeout(() => {
-      const isSuccess = Math.random() > 0.5 // Рандомный ответ
+      const isSuccess = Math.random() > 0.5
       if (isSuccess) {
         resolve()
       } else {
@@ -135,6 +135,14 @@ function submitFormData(form) {
       }
     }, 3000)
   })
+} */
+
+async function submitFormData(form) {
+  await new Promise((resolve) => setTimeout(resolve, 3000)) // Имитация задержки
+  const isSuccess = Math.random() > 0.5 // Рандомный ответ
+  if (!isSuccess) {
+    throw new Error('Ошибка отправки данных')
+  }
 }
 
 // Инициализация обработчиков событий
@@ -168,7 +176,7 @@ document.querySelectorAll('.form').forEach((form) => {
     })
   }
 
-  form.addEventListener('submit', function (e) {
+  /* form.addEventListener('submit', function (e) {
     e.preventDefault()
     if (validateForm(form)) {
       submitFormData(form)
@@ -181,11 +189,40 @@ document.querySelectorAll('.form').forEach((form) => {
           hideLoader(form)
         })
     }
+  }) */
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault()
+    if (validateForm(form)) {
+      showLoader(form)
+      try {
+        await submitFormData(form)
+        popup_open('popup-success')
+      } catch (error) {
+        console.log(error)
+        popup_open('popup-error')
+      } finally {
+        hideLoader(form)
+      }
+    }
   })
 })
 
 // Возвращает последнюю форму в которой произошла ошибка
 document.getElementById('back-btn').addEventListener('click', function () {
-  console.log(last_popup_id)
   popup_open(last_popup_id)
 })
+
+// Пример использования функции async/await
+/* async function loadJson(url) {
+  const data = await fetch(url)
+  if (data.status == 200) {
+    console.log(data)
+    return data.json()
+  }
+  throw new Error(data.status)
+}
+
+loadJson('https://dummyjson.com/users').catch((error) => {
+  console.log('Ошибка: ' + error)
+}) */

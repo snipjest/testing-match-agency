@@ -19,5 +19,6 @@ nbdist/
 
 # Local History for Visual Studio Code
 .history/
+dist/
 
 **/.DS_Store

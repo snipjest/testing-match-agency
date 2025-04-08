@@ -4,10 +4,10 @@ import { deleteAsync as del } from 'del'
 import autoprefixer from 'gulp-autoprefixer'
 import cleancss from 'gulp-clean-css'
 import concat from 'gulp-concat'
-import imagemin from 'gulp-imagemin'
+/* import imagemin from 'gulp-imagemin'
 import gifsicle from 'imagemin-gifsicle'
 import mozjpeg from 'imagemin-mozjpeg'
-import optipng from 'imagemin-optipng'
+import optipng from 'imagemin-optipng' */
 import notify from 'gulp-notify'
 import plumber from 'gulp-plumber'
 import include from 'gulp-include'
@@ -142,13 +142,13 @@ export const scriptsLibs = () => {
 export const images = () => {
   return gulp
     .src([paths.src.img, '!src/assets/images/favicon/**'])
-    .pipe(
+    /* .pipe(
       imagemin([
         gifsicle({ interlaced: true }),
         mozjpeg({ quality: 85, progressive: true }),
         optipng({ optimizationLevel: 2 }),
       ])
-    )
+    ) */
     .pipe(gulp.dest(paths.dist.img))
     .pipe(webp({ quality: 85 }))
     .pipe(gulp.dest(paths.dist.img))
